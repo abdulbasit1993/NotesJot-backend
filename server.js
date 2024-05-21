@@ -37,6 +37,12 @@ const notesRoutes = require("./src/routes/notesRoutes");
 userRoutes(app);
 notesRoutes(app);
 
+app.get("/", function (req, res) {
+  return res.status(200).json({
+    message: "Welcome to NotesJot APIs!",
+  });
+});
+
 app.use(function (req, res) {
   res.status(404).json({
     message: `url ${req.originalUrl} not found`,
