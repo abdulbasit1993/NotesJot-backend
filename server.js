@@ -27,12 +27,15 @@ mongoose
   });
 
 require("./src/models/userModel");
+require("./src/models/notesModel");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const userRoutes = require("./src/routes/userRoutes");
+const notesRoutes = require("./src/routes/notesRoutes");
 userRoutes(app);
+notesRoutes(app);
 
 app.use(function (req, res) {
   res.status(404).json({
